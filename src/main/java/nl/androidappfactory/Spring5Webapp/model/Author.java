@@ -3,6 +3,7 @@ package nl.androidappfactory.Spring5Webapp.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +23,16 @@ public class Author {
 
 	private String lastName;
 
-	@ManyToMany
-	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
+	public Author() {}
+
+	public Author(String firstName, String lastName) {
+
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "book_id"))
 	private Set<Book> books = new HashSet<>();
 
 	public String getFirstName() {
