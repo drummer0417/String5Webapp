@@ -55,5 +55,13 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
 		authorRepository.save(rod);
 		bookRepository.save(noEJB);
+
+		Author hans = new Author("Hans", "Meurs, van");
+		Book scrum = new Book("Scrum for dummies", "1236");
+		hans.getBooks().add(scrum);
+		scrum.setPublisher(wbrx);
+
+		authorRepository.save(hans);
+		bookRepository.save(scrum);
 	}
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>AndroidAppFactory Authors</title>
+</head>
+<body>
+	<h1>List of authors</h1>
+	<hr>
+	<div>
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>First name</th>
+				<th>Last name</th>
+			</tr>
+			<tr th:each="author : ${authors}">
+				<td th:text="${author.id}">123</td>
+				<td th:text="${author.firstName}">P</td>
+				<td th:text="${author.lastName}">Puk</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
